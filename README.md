@@ -2,6 +2,33 @@
 
 This project was created using the [Ktor Project Generator](https://start.ktor.io).
 
+## Configuration
+
+### Environment Variables
+
+Create a `.env` file in the project root with your database configuration:
+
+```bash
+cp .env.example .env
+```
+
+Edit the `.env` file with your actual database credentials:
+
+```env
+# Database Configuration
+DB_DRIVER=org.postgresql.Driver
+DB_URL=jdbc:postgresql://localhost:5432/spotify
+DB_USER=your_username
+DB_PASSWORD=your_password
+
+# Hikari Pool Configuration
+DB_MAX_POOL_SIZE=3
+DB_AUTO_COMMIT=false
+DB_TRANSACTION_ISOLATION=TRANSACTION_REPEATABLE_READ
+```
+
+**Important:** Never commit the `.env` file to version control. It's already included in `.gitignore`.
+
 Here are some useful links to get you started:
 
 - [Ktor Documentation](https://ktor.io/docs/home.html)
@@ -42,3 +69,10 @@ If the server starts successfully, you'll see the following output:
 2024-12-04 14:32:45.682 [main] INFO  Application - Responding at http://0.0.0.0:8080
 ```
 
+## Setup Instructions
+
+1. Clone the repository
+2. Copy `.env.example` to `.env`
+3. Update the `.env` file with your database credentials
+4. Run `./gradlew run` to start the server
+```
